@@ -16,6 +16,10 @@ class menu extends Component
     public function render()
     {
         $items = MenuModel::tree();
-        return view('SaeedSalem::components.menu', ['items' => $items]);
+        if (View::exists('vendor.menu.components.menu')):
+            return view('vendor.menu.components.menu', ['items' => $items]);
+        else:
+            return view('SaeedSalem::components.menu', ['items' => $items]);
+        endif;
     }
 }
